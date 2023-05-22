@@ -81,7 +81,10 @@ public class LoomMigrationEngine {
             && (mode != Mode.FileByFile
             || isOk(before, cu.toString()))) {
                 filescnt++;
-                for(int i=0; i<5; i++)rule[i] += curRule[i];
+                for(int i=0; i<5; i++){
+                    rule[i] += curRule[i];
+                    curRule[i] = 0;
+                }
                 PrintWriter out = new PrintWriter(file.getAbsolutePath());
                 out.println(cu.toString());
                 out.close();
