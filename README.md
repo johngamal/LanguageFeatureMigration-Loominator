@@ -1,24 +1,30 @@
-<<<<<<< HEAD
-# testtest
-=======
-JavaParser and Maven sample
----
+# Loominator - An automatic migration tool to project Loom
 
-A fully working sample Maven project that parses and generates code with [JavaParser](http://www.javaparser.org)
+This project is done as a part of our research thesis project on language feature migration under the supervision of Dr. Sarah Nadi, Dr. Karim Ali, Dr. Sherif Ali in collaboration with IBM Canada.
 
-This is targeted at people without [Maven](https://maven.apache.org/) experience.
+The team: 
+- John Attia
+- Yassin Abdelkarim
+- Joseph Boulis
+- Jacquline Azar
+- Sherif Elsamra
 
-To build it, you will need to download and unpack the latest (or recent) version of Maven (https://maven.apache.org/download.cgi)
-and put the `mvn` command on your path.
-Then, you will need to install a Java 1.8 (or higher) JDK (not JRE!), and make sure you can run `java` from the command line.
-Now you can run `mvn clean install` and Maven will compile your project, 
-an put the results it in two jar files in the `target` directory.
-If you like to run from the command line,
-execute `java -jar target/javaparser-maven-sample-1.0-SNAPSHOT-shaded.jar`.
+## Brief
 
-How you run this code is up to you, but usually you would start by using an IDE like [NetBeans](https://netbeans.org/), [Intellij IDEA](https://www.jetbrains.com/idea/), or [Eclipse](https://eclipse.org/ide/).
+Loominator is an automatic migration tool that migrates already existing Java codebases to use Project Loom. It uses Javaparser library to parse Java code into Abstract Syntax Trees on which all the edits are applied.
 
-The Maven dependencies may lag behind the official releases a bit.
 
-If you notice some problems with this setup, please open an issue.
->>>>>>> e7cf5b6 (test)
+## How to run
+We recommend using Intilij to handle the automatic building and running of this project.
+
+To build the project manually from a terminal run:
+
+`mvn clean install`
+
+To run the build:
+
+`java -cp target/Loominator-1.0-SNAPSHOT-shaded.jar com.langFeautreMigration.projectCode.main`
+
+The project asks for the directory on which it will be working and the mode. It will recursively traverse all files under the given directory, migrating all files with the extension ".java". The project currently supports two modes:
+ - All: it applies edits automatically to the entire directory without asking the user for any input.
+ - File By File: it applies edits to every file and then asks the user to confirm the edits and whether the user would like to keep it or not. 
